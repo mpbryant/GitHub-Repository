@@ -33,14 +33,17 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.csharpLB = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.vbLB = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.genLB = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.saveBTN = new System.Windows.Forms.Button();
             this.noteTitleTB = new System.Windows.Forms.TextBox();
             this.notesRTB = new System.Windows.Forms.RichTextBox();
-            this.vbLB = new System.Windows.Forms.ListBox();
-            this.genLB = new System.Windows.Forms.ListBox();
             this.clearBTN = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -49,9 +52,9 @@
             // 
             // codeRTB
             // 
-            this.codeRTB.Location = new System.Drawing.Point(684, 13);
+            this.codeRTB.Location = new System.Drawing.Point(684, 25);
             this.codeRTB.Name = "codeRTB";
-            this.codeRTB.Size = new System.Drawing.Size(360, 382);
+            this.codeRTB.Size = new System.Drawing.Size(360, 370);
             this.codeRTB.TabIndex = 0;
             this.codeRTB.Text = "";
             // 
@@ -99,6 +102,15 @@
             this.tabPage2.Text = "Visual Basic";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // vbLB
+            // 
+            this.vbLB.FormattingEnabled = true;
+            this.vbLB.Location = new System.Drawing.Point(5, 7);
+            this.vbLB.Name = "vbLB";
+            this.vbLB.Size = new System.Drawing.Size(296, 342);
+            this.vbLB.TabIndex = 1;
+            this.vbLB.SelectedIndexChanged += new System.EventHandler(this.vbLB_SelectedIndexChanged);
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.genLB);
@@ -108,6 +120,15 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "General";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // genLB
+            // 
+            this.genLB.FormattingEnabled = true;
+            this.genLB.Location = new System.Drawing.Point(5, 7);
+            this.genLB.Name = "genLB";
+            this.genLB.Size = new System.Drawing.Size(299, 342);
+            this.genLB.TabIndex = 1;
+            this.genLB.SelectedIndexChanged += new System.EventHandler(this.genLB_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -130,37 +151,19 @@
             // 
             // noteTitleTB
             // 
-            this.noteTitleTB.Location = new System.Drawing.Point(334, 12);
+            this.noteTitleTB.Location = new System.Drawing.Point(334, 25);
             this.noteTitleTB.Name = "noteTitleTB";
             this.noteTitleTB.Size = new System.Drawing.Size(344, 20);
             this.noteTitleTB.TabIndex = 5;
             // 
             // notesRTB
             // 
-            this.notesRTB.Location = new System.Drawing.Point(335, 39);
+            this.notesRTB.Location = new System.Drawing.Point(335, 67);
             this.notesRTB.Name = "notesRTB";
             this.notesRTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.notesRTB.Size = new System.Drawing.Size(343, 326);
+            this.notesRTB.Size = new System.Drawing.Size(343, 298);
             this.notesRTB.TabIndex = 6;
             this.notesRTB.Text = "";
-            // 
-            // vbLB
-            // 
-            this.vbLB.FormattingEnabled = true;
-            this.vbLB.Location = new System.Drawing.Point(5, 7);
-            this.vbLB.Name = "vbLB";
-            this.vbLB.Size = new System.Drawing.Size(296, 342);
-            this.vbLB.TabIndex = 1;
-            this.vbLB.SelectedIndexChanged += new System.EventHandler(this.vbLB_SelectedIndexChanged);
-            // 
-            // genLB
-            // 
-            this.genLB.FormattingEnabled = true;
-            this.genLB.Location = new System.Drawing.Point(5, 7);
-            this.genLB.Name = "genLB";
-            this.genLB.Size = new System.Drawing.Size(299, 342);
-            this.genLB.TabIndex = 1;
-            this.genLB.SelectedIndexChanged += new System.EventHandler(this.genLB_SelectedIndexChanged);
             // 
             // clearBTN
             // 
@@ -172,11 +175,44 @@
             this.clearBTN.UseVisualStyleBackColor = true;
             this.clearBTN.Click += new System.EventHandler(this.clearBTN_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(339, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Note:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(338, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Title:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(687, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Code:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 407);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.clearBTN);
             this.Controls.Add(this.notesRTB);
             this.Controls.Add(this.noteTitleTB);
@@ -212,6 +248,9 @@
         private System.Windows.Forms.ListBox vbLB;
         private System.Windows.Forms.ListBox genLB;
         private System.Windows.Forms.Button clearBTN;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 
