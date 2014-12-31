@@ -363,12 +363,14 @@ namespace myNotes
         {
             noteTitleTB.Text = (string)vbLB.SelectedItem;
             GetNotesRTB();
+            GetCodeRTB();
         }
 
         private void genLB_SelectedIndexChanged(object sender, EventArgs e)
         {
             noteTitleTB.Text = (string)genLB.SelectedItem;
             GetNotesRTB();
+            GetCodeRTB();
         }
 
         #endregion
