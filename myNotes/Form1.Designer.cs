@@ -34,6 +34,8 @@
             this.csharpLB = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.vbLB = new System.Windows.Forms.ListBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.javaLB = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.genLB = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +49,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +65,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(13, 13);
             this.tabControl1.Multiline = true;
@@ -110,6 +114,25 @@
             this.vbLB.Size = new System.Drawing.Size(296, 342);
             this.vbLB.TabIndex = 1;
             this.vbLB.SelectedIndexChanged += new System.EventHandler(this.vbLB_SelectedIndexChanged);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.javaLB);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(307, 356);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Java";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // javaLB
+            // 
+            this.javaLB.FormattingEnabled = true;
+            this.javaLB.Location = new System.Drawing.Point(5, 7);
+            this.javaLB.Name = "javaLB";
+            this.javaLB.Size = new System.Drawing.Size(296, 342);
+            this.javaLB.TabIndex = 2;
+            this.javaLB.SelectedIndexChanged += new System.EventHandler(this.javaLB_SelectedIndexChanged);
             // 
             // tabPage3
             // 
@@ -227,6 +250,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -251,6 +275,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.ListBox javaLB;
     }
 }
 

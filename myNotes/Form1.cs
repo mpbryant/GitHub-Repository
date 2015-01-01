@@ -12,18 +12,29 @@ namespace myNotes
         string path = "..\\SoftwareNotes.doc";
         string line;
 
+        #region Form Manipulation
+
         public Form1()
         {
             InitializeComponent();
             LoadLB();
         }
 
+        private void clearBTN_Click(object sender, EventArgs e)
+        {
+            codeRTB.Text = "";
+            notesRTB.Text = "";
+            noteTitleTB.Text = "";
+        }
+
+        #endregion
+
         #region Save Items Section
 
         private void saveBTN_Click(object sender, EventArgs e)
         {
 
-            if ((tabControl1.SelectedTab.Text == "CSharp" && !csharpLB.Items.Contains(noteTitleTB.Text)) || (tabControl1.SelectedTab.Text == "Visual Basic" && !vbLB.Items.Contains(noteTitleTB.Text)) || (tabControl1.SelectedTab.Text == "General" && !genLB.Items.Contains(noteTitleTB.Text)))//restricts adding the text if it already exists
+            if ((tabControl1.SelectedTab.Text == "CSharp" && !csharpLB.Items.Contains(noteTitleTB.Text)) || (tabControl1.SelectedTab.Text == "Visual Basic" && !vbLB.Items.Contains(noteTitleTB.Text)) || (tabControl1.SelectedTab.Text == "Java" && !javaLB.Items.Contains(noteTitleTB.Text)) || (tabControl1.SelectedTab.Text == "General" && !genLB.Items.Contains(noteTitleTB.Text)))//restricts adding the text if it already exists
             {
                 SaveToTab();//saves the listbox item
                 SaveNoteText();//saves the note
@@ -103,6 +114,22 @@ namespace myNotes
                 sw.WriteLine("BEGIN VB TOC");
                 sw.WriteLine(noteTitleTB.Text);
                 sw.WriteLine("END VB TOC");
+                //close streamwriter
+                sw.Close();
+
+            }
+            //check for the active tab
+            if (tabControl1.SelectedTab.Text == "Java")
+            {
+                // add text from the noteTitleTB to csharpLB
+                javaLB.Items.Add(noteTitleTB.Text);
+
+
+                //create streamwriter
+                StreamWriter sw = new StreamWriter(path, true);
+                sw.WriteLine("BEGIN JAVA TOC");
+                sw.WriteLine(noteTitleTB.Text);
+                sw.WriteLine("END JAVA TOC");
                 //close streamwriter
                 sw.Close();
 
@@ -212,6 +239,46 @@ namespace myNotes
                     }
                 }
 
+
+
+
+
+
+                //determine the tab that is active
+                if (tabControl1.SelectedTab.Text == "Java")
+                {
+                    //get the list of note titles
+                    while (line != null)//reads until a null line (AKA end of the document)
+                    {
+                        if (line == "BEGIN JAVA TOC")//begin reading the TOC
+                        {
+                            line = sr.ReadLine();//increments the readline value
+
+                            while (line != "END JAVA TOC")//stop reading TOC when end is reached
+                            {
+
+                                try
+                                {
+                                    if (!javaLB.Items.Contains(line))//restricts adding the text if it already exists
+                                    {
+                                        javaLB.Items.Add(line);
+                                    }
+
+                                }
+
+                                catch
+                                {
+                                    break;
+                                }
+
+
+                                line = sr.ReadLine();//increments the readline value
+
+                            }
+                        }
+                        line = sr.ReadLine();//increments the readline value
+                    }
+                }
 
 
 
@@ -358,10 +425,16 @@ namespace myNotes
         }
 
         
-
         private void vbLB_SelectedIndexChanged(object sender, EventArgs e)
         {
             noteTitleTB.Text = (string)vbLB.SelectedItem;
+            GetNotesRTB();
+            GetCodeRTB();
+        }
+
+        private void javaLB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            noteTitleTB.Text = (string)javaLB.SelectedItem;
             GetNotesRTB();
             GetCodeRTB();
         }
@@ -375,12 +448,15 @@ namespace myNotes
 
         #endregion
 
-        private void clearBTN_Click(object sender, EventArgs e)
-        {
-            codeRTB.Text = "";
-            notesRTB.Text = "";
-            noteTitleTB.Text = "";
-        }
+        
+
+        
+
+        
+
+        
+
+        
 
     }
 }
